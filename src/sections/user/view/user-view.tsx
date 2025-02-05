@@ -383,7 +383,7 @@ export function UserView() {
               <TextField
                 label="Email"
                 value={formData.email}
-                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                onChange={(e) => setFormData({ ...formData, email: e.target.value.toLowerCase() })}
                 fullWidth
                 margin="normal"
                 error={!!errors.email}
