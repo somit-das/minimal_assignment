@@ -1,6 +1,8 @@
 import React from "react";
-import { Navigate, Outlet } from "react-router-dom";
+import { Outlet, Navigate } from "react-router-dom";
+
 import { auth } from "src/config/firebase";
+
 const AuthRoute: React.FC = () => {
   const user = auth.currentUser; // Check if the user is authenticated
 
