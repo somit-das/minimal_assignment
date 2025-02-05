@@ -21,6 +21,7 @@ import {
 } from '@mui/material';
 
 import { db } from 'src/config/firebase';
+import { Scrollbar } from 'src/components/scrollbar';
 
 interface Student {
   id: string;
@@ -311,134 +312,139 @@ export function UserView() {
         </Table>
       </TableContainer>
 
-      <Modal open={openModal} onClose={() => setOpenModal(false)}>
-        <div
+      <Scrollbar >
+        <Modal open={openModal} style={{ height: '100vh' }} onClose={() => setOpenModal(false)}>
+          <div
           style={{
             padding: '20px',
             backgroundColor: 'white',
             margin: 'auto',
-            marginTop: '50px',
+            marginTop: '3%',
             width: '50%',
-          }}
-        >
-          <h2>Edit Student</h2>
-          <form>
-            <TextField
-                    label="Name"
-                    value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    fullWidth
-                    margin="normal"
-                    error={!!errors.name}
-                    helperText={errors.name}
-                  />
-                  <TextField
-                    label="Class"
-                    value={formData.class}
-                    onChange={(e) => setFormData({ ...formData, class: e.target.value })}
-                    fullWidth
-                    margin="normal"
-                    error={!!errors.class}
-                    helperText={errors.class}
-                  />
-                  <TextField
-                    label="Section"
-                    value={formData.section}
-                    onChange={(e) => setFormData({ ...formData, section: e.target.value })}
-                    fullWidth
-                    margin="normal"
-                    error={!!errors.section}
-                    helperText={errors.section}
-                  />
-                  <TextField
-                    label="Roll Number"
-                    value={formData.rollNumber}
-                    onChange={(e) => setFormData({ ...formData, rollNumber: e.target.value })}
-                    fullWidth
-                    margin="normal"
-                    error={!!errors.rollNumber}
-                    helperText={errors.rollNumber}
-                  />
-                  <TextField
-                    label="Address"
-                    value={formData.address}
-                    onChange={(e) => setFormData({ ...formData, address: e.target.value })}
-                    fullWidth
-                    margin="normal"
-                    error={!!errors.address}
-                    helperText={errors.address}
-                  />
-                  <TextField
-                    label="Phone"
-                    value={formData.phone}
-                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    fullWidth
-                    margin="normal"
-                    error={!!errors.phone}
-                    helperText={errors.phone}
-                  />
-                  <TextField
-                    label="Email"
-                    value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    fullWidth
-                    margin="normal"
-                    error={!!errors.email}
-                    helperText={errors.email}
-                  />
-                  <TextField
-                    label="Date of Birth"
-                    type="date"
-                    value={formData.dob}
-                    onChange={(e) => setFormData({ ...formData, dob: e.target.value })}
-                    // fullWidth
-                    margin="normal"
-                    InputLabelProps={{ shrink: true }}
-                    error={!!errors.dob}
-                    helperText={errors.dob}
-                  />
-                  <TextField
-                    label="Gender"
-                    value={formData.gender}
-                    onChange={(e) => setFormData({ ...formData, gender: e.target.value.toLowerCase() })}
-                    fullWidth
-                    margin="normal"
-                    error={!!errors.gender}
-                    helperText={errors.gender}
-                  />
-                  <TextField
-                    label="Father's Name"
-                    value={formData.fatherName}
-                    onChange={(e) => setFormData({ ...formData, fatherName: e.target.value })}
-                    fullWidth
-                    margin="normal"
-                    error={!!errors.fatherName}
-                    helperText={errors.fatherName}
-                  />
-                  <TextField
-                    label="Mother's Name"
-                    value={formData.motherName}
-                    onChange={(e) => setFormData({ ...formData, motherName: e.target.value })}
-                    fullWidth
-                    margin="normal"
-                    error={!!errors.motherName}
-                    helperText={errors.motherName}
-                  />
-                  <TextField
-                    label="Blood Group"
-                    value={formData.bloodGroup}
-                    onChange={(e) => setFormData({ ...formData, bloodGroup: e.target.value.toUpperCase() })}
-                    fullWidth
-                    margin="normal"
-                    error={!!errors.bloodGroup}
-                    helperText={errors.bloodGroup}
-                  />
-            <Button variant="contained" onClick={(e) => handleUpdateStudent(formData.id,e)}>
-              Submit
-            </Button>
-          </form>
-        </div>
-      </Modal>
+            maxHeight: '90vh',  // Limit the height to 90% of the viewport
+            overflowY: 'auto',  // Allow vertical scrolling if content overflows
+          }}>
+            <h2>Edit Student</h2>
+            <form>
+              <TextField
+                label="Name"
+                value={formData.name}
+                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                fullWidth
+                margin="normal"
+                error={!!errors.name}
+                helperText={errors.name}
+              />
+              <TextField
+                label="Class"
+                value={formData.class}
+                onChange={(e) => setFormData({ ...formData, class: e.target.value })}
+                fullWidth
+                margin="normal"
+                error={!!errors.class}
+                helperText={errors.class}
+              />
+              <TextField
+                label="Section"
+                value={formData.section}
+                onChange={(e) => setFormData({ ...formData, section: e.target.value })}
+                fullWidth
+                margin="normal"
+                error={!!errors.section}
+                helperText={errors.section}
+              />
+              <TextField
+                label="Roll Number"
+                value={formData.rollNumber}
+                onChange={(e) => setFormData({ ...formData, rollNumber: e.target.value })}
+                fullWidth
+                margin="normal"
+                error={!!errors.rollNumber}
+                helperText={errors.rollNumber}
+              />
+              <TextField
+                label="Address"
+                value={formData.address}
+                onChange={(e) => setFormData({ ...formData, address: e.target.value })}
+                fullWidth
+                margin="normal"
+                error={!!errors.address}
+                helperText={errors.address}
+              />
+              <TextField
+                label="Phone"
+                value={formData.phone}
+                onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                fullWidth
+                margin="normal"
+                error={!!errors.phone}
+                helperText={errors.phone}
+              />
+              <TextField
+                label="Email"
+                value={formData.email}
+                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                fullWidth
+                margin="normal"
+                error={!!errors.email}
+                helperText={errors.email}
+              />
+              <TextField
+                label="Date of Birth"
+                type="date"
+                value={formData.dob}
+                onChange={(e) => setFormData({ ...formData, dob: e.target.value })}
+                // fullWidth
+                margin="normal"
+                InputLabelProps={{ shrink: true }}
+                error={!!errors.dob}
+                helperText={errors.dob}
+              />
+              <TextField
+                label="Gender"
+                value={formData.gender}
+                onChange={(e) => setFormData({ ...formData, gender: e.target.value.toLowerCase() })}
+                fullWidth
+                margin="normal"
+                error={!!errors.gender}
+                helperText={errors.gender}
+              />
+              <TextField
+                label="Father's Name"
+                value={formData.fatherName}
+                onChange={(e) => setFormData({ ...formData, fatherName: e.target.value })}
+                fullWidth
+                margin="normal"
+                error={!!errors.fatherName}
+                helperText={errors.fatherName}
+              />
+              <TextField
+                label="Mother's Name"
+                value={formData.motherName}
+                onChange={(e) => setFormData({ ...formData, motherName: e.target.value })}
+                fullWidth
+                margin="normal"
+                error={!!errors.motherName}
+                helperText={errors.motherName}
+              />
+              <TextField
+                label="Blood Group"
+                value={formData.bloodGroup}
+                onChange={(e) =>
+                  setFormData({ ...formData, bloodGroup: e.target.value.toUpperCase() })
+                }
+                fullWidth
+                margin="normal"
+                error={!!errors.bloodGroup}
+                helperText={errors.bloodGroup}
+              />
+              <Button variant="contained" onClick={(e) => handleUpdateStudent(formData.id, e)}>
+                Submit
+              </Button>
+            </form>
+          </div>
+        </Modal>
+      </Scrollbar>
       <Snackbar
         open={open}
         autoHideDuration={5000}
