@@ -125,7 +125,7 @@ export function NavContent({ data, slots, sx }: NavContentProps) {
 
       {/* <WorkspacesPopover  sx={{ my: 2 }} /> */}
 
-      <Scrollbar fillContent  sx={{ my: 4 }} >
+      <Scrollbar fillContent  sx={{ my: 10 }} >
         <Box component="nav" display="flex" flex="1 1 auto" flexDirection="column" sx={sx}>
           <Box component="ul" gap={0.5} display="flex" flexDirection="column">
             {data.map((item) => {

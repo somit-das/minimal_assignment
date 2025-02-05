@@ -62,7 +62,7 @@ export function UserView() {
     const [errors, setErrors] = useState<FormErrors>({});
   const [open, setOpen] = React.useState(false);
   const navigate = useNavigate();
-  const [formData, setFormData] = useState<Student>({
+  const [formData, setFormData] = useState({
     id: generateUUID,
     name: '',
     class: '',
@@ -199,16 +199,16 @@ export function UserView() {
     const studentsRef = collection(db, 'students');
     const q = query(studentsRef, where('id', '==', id)); // Assuming 'id' is a field
     const querySnapshot = await getDocs(q);
-    console.log(q);
-    console.log(await getDocs(q));
+    // console.log(q);
+    // console.log(await getDocs(q));
     // console.log(querySnapshot.docs.filter((docu)=>docu.id==id));
     if (querySnapshot.empty) {
-      console.log('No matching documents found.');
+      // console.log('No matching documents found.');
       return ;
     }
 
     querySnapshot.forEach(async (doc1) => {
-      console.log('Document ID:', doc1.id); // Firestore Document ID
+      // console.log('Document ID:', doc1.id); // Firestore Document ID
       await updateDoc(doc(db, 'students', doc1.id), formData);
     });
     // await addDoc(collection(db, "students"), formData);
@@ -236,16 +236,16 @@ export function UserView() {
     const studentsRef = collection(db, 'students');
     const q = query(studentsRef, where('id', '==', id)); // Assuming 'id' is a field
     const querySnapshot = await getDocs(q);
-    console.log(q);
-    console.log(await getDocs(q));
+    // console.log(q);
+    // console.log(await getDocs(q));
     // console.log(querySnapshot.docs.filter((docu)=>docu.id==id));
     if (querySnapshot.empty) {
-      console.log('No matching documents found.');
+      // console.log('No matching documents found.');
       return null;
     }
 
     querySnapshot.forEach(async (doc1) => {
-      console.log('Document ID:', doc1.id); // Firestore Document ID
+      // console.log('Document ID:', doc1.id); // Firestore Document ID
       await deleteDoc(doc(db, 'students', doc1.id));
     });
 

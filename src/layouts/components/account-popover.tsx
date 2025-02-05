@@ -39,7 +39,7 @@ export function AccountPopover({ data = [], sx, ...other }: AccountPopoverProps)
   const [email,setEmail] = useState("")
 
   const handleOpenPopover = useCallback((event: React.MouseEvent<HTMLButtonElement>) => {
-    console.log(auth.currentUser)
+    // console.log(auth.currentUser)
     const name = String(auth.currentUser?.displayName || auth.currentUser?.email?.split("@")[0]);
     const mailId = String (auth.currentUser?.email)
     setUsername(()=>name);

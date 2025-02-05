@@ -32,13 +32,14 @@ export type UserProps = {
     bloodGroup: string,
 };
 
-type UserTableRowProps = {
-  row: UserProps;
-  selected: boolean;
-  onSelectRow: () => void;
-};
 
-export function UserTableRow({ row,iden, selected, onSelectRow }: UserTableRowProps) {
+interface UserTableRowProps {
+  row: any;
+  iden?: string;
+  selected: boolean;
+  onSelectRow: (row: any) => void;
+}
+export function UserTableRow({ row, iden, selected, onSelectRow }: UserTableRowProps) {
   const [openPopover, setOpenPopover] = useState<HTMLButtonElement | null>(null);
 
   const handleOpenPopover = useCallback((event: React.MouseEvent<HTMLButtonElement>) => {
@@ -62,19 +63,20 @@ export function UserTableRow({ row,iden, selected, onSelectRow }: UserTableRowPr
             {row.name}
           </Box>
         </TableCell> */}
-         <TableCell>{iden+1}</TableCell>
+        <TableCell>{iden }</TableCell>
 
         <TableCell>{row.name}</TableCell>
 
         <TableCell>{row.class}</TableCell>
 
         <TableCell>
-          {row.section
-          //  ? (
-          //   <Iconify width={22} icon="solar:check-circle-bold" sx={{ color: 'success.main' }} />
-          // ) : (
-          //   '-'
-          // )
+          {
+            row.section
+            //  ? (
+            //   <Iconify width={22} icon="solar:check-circle-bold" sx={{ color: 'success.main' }} />
+            // ) : (
+            //   '-'
+            // )
           }
         </TableCell>
         {/* <TableCell>{row.section}</TableCell> */}

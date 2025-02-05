@@ -70,7 +70,7 @@ const UserIndividual: React.FC = () => {
         // } else {
         //   setError('Student not found');
         // }
-        console.log('Querying for student with field ID:', id);
+        // console.log('Querying for student with field ID:', id);
 
         const studentsRef = collection(db, 'students');
         const q = query(studentsRef, where('id', '==', id)); // Assuming 'id' is a field
@@ -78,8 +78,9 @@ const UserIndividual: React.FC = () => {
 
         if (!querySnapshot.empty) {
           querySnapshot.forEach((doc1) => {
-            console.log('Student Found:', doc1.data());
-            setStudent({ id: doc1.id, ...doc1.data() });
+            // console.log('Student Found:', doc1.data());
+             const studentData = doc1.data() as Student;
+            setStudent({ ...studentData });
           });
         } else {
           console.warn('No student found with this ID field.');

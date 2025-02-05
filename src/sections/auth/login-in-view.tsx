@@ -37,7 +37,7 @@ export function LoginInView() {
   // }, [router]);
   useEffect(()=>{
     if(auth.currentUser){
-      console.log(auth.currentUser);
+      // console.log(auth.currentUser);
       navigate("/");
     }
   })
@@ -79,7 +79,7 @@ export function LoginInView() {
       // setPersistence, browserLocalPersistence, browserSessionPersistence
 
       if (auth.currentUser) {
-        console.log(auth.currentUser); // Debug check
+        // console.log(auth.currentUser); // Debug check
         navigate("/");
       }
     } catch (err: any) {
@@ -105,7 +105,7 @@ export function LoginInView() {
             setLogin(()=>true)
         }
         catch(err){
-          console.log(err.message);
+          // console.log(err.message);
           if(err.message.includes("auth/invalid-email")){
           setErrMesg(()=>"Invalid Email")
           }else if(err.message.includes("auth/missing")){
