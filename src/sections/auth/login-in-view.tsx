@@ -124,7 +124,8 @@ export function LoginInView() {
     }
   
   }
-  const signInWithGoogle = async () => {
+  const signInWithGoogle = async (e:any) => {
+    e.preventDefault();
        try {
          await signInWithPopup(auth,googleAuthProvider)
          setErrMesg(()=>"Successful Logging")
@@ -261,7 +262,7 @@ export function LoginInView() {
   const directSign = (
     <Box gap={1} display="flex" justifyContent="center" alignItems="center">
         Sign with Google
-        <IconButton color="inherit" onClick={signInWithGoogle}>
+        <IconButton color="inherit" onClick={(e)=>signInWithGoogle(e)}>
           <Iconify icon="logos:google-icon" />
         </IconButton>
         {/* <IconButton color="inherit">
